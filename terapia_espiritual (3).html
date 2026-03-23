@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Terapia Espiritual – Bienestar Emocional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#c9a84c;
+  --gold-light:#e8d5a3;
+  --purple-dark:#1a0a2e;
+  --purple-mid:#3d1a6e;
+  --purple:#6b3fa0;
+  --text-light:#f5eeff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--purple-dark);color:var(--text-light);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,10,46,0.92);backdrop-filter:blur(10px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.2);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);letter-spacing:2px;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.9rem;letter-spacing:1px;transition:.3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-social{display:flex;gap:12px;align-items:center;}
+.nav-social a{color:var(--gold);font-size:1.3rem;text-decoration:none;transition:.3s;}
+.nav-social a:hover{opacity:.7;}
+.nav-cta{background:linear-gradient(135deg,var(--gold),#a07830);color:#fff;border:none;padding:8px 20px;border-radius:25px;cursor:pointer;font-family:'Lato',sans-serif;font-size:.85rem;letter-spacing:1px;transition:.3s;}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(201,168,76,.4);}
+
+/* HERO */
+#inicio{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:70px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,#4a1a7a 0%,#2a0a50 40%,#0d0520 100%);}
+canvas#stars{position:absolute;inset:0;pointer-events:none;}
+.hero-content{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:60px 40px;width:100%;gap:40px;}
+.hero-text{flex:1;max-width:600px;background:rgba(10,0,25,0.45);backdrop-filter:blur(2px);border-radius:20px;padding:30px;}
+.lotus-icon{font-size:3rem;margin-bottom:10px;display:block;filter:drop-shadow(0 0 12px var(--gold));}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);color:var(--gold-light);line-height:1.1;margin-bottom:8px;text-shadow:0 0 30px rgba(201,168,76,.3);}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--gold);margin-bottom:28px;letter-spacing:1px;}
+.hero-desc{font-size:1.05rem;line-height:1.8;color:#d4c8f0;margin-bottom:14px;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px;}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#a07830);color:#fff;border:none;padding:14px 32px;border-radius:30px;font-size:1rem;cursor:pointer;font-family:'Lato',sans-serif;letter-spacing:1px;transition:.3s;text-decoration:none;display:inline-block;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(201,168,76,.5);}
+.btn-secondary{background:transparent;color:var(--gold-light);border:2px solid var(--gold);padding:12px 30px;border-radius:30px;font-size:1rem;cursor:pointer;font-family:'Lato',sans-serif;letter-spacing:1px;transition:.3s;text-decoration:none;display:inline-block;}
+.btn-secondary:hover{background:rgba(201,168,76,.1);transform:translateY(-3px);}
+.hero-image{flex:0 0 auto;width:clamp(280px,38vw,460px);}
+.hero-image img{width:100%;border-radius:20px;object-fit:cover;filter:drop-shadow(0 0 40px rgba(107,63,160,.8));}
+
+/* BOTTOM NAV ICONS */
+.icon-nav{display:flex;justify-content:center;gap:clamp(16px,4vw,50px);padding:24px 20px 10px;flex-wrap:wrap;}
+.icon-nav-item{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--gold);text-decoration:none;font-size:.75rem;letter-spacing:1px;transition:.3s;}
+.icon-nav-item:hover{color:var(--gold-light);transform:translateY(-3px);}
+.icon-nav-item span.ico{font-size:1.8rem;}
+
+/* SECTION BASE */
+section{padding:90px 40px;max-width:1200px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--gold);text-align:center;margin-bottom:12px;}
+.section-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 50px;}
+
+/* ABOUT / QUE ES */
+#sobre-mi{padding:90px 40px;}
+.about-grid{display:flex;align-items:center;gap:60px;max-width:1200px;margin:0 auto;}
+.about-img{flex:0 0 auto;width:clamp(240px,35vw,400px);}
+.about-img img{width:100%;border-radius:20px;filter:drop-shadow(0 0 30px rgba(107,63,160,.6));}
+.about-text h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);margin-bottom:16px;}
+.about-text p{color:#d4c8f0;line-height:1.9;margin-bottom:14px;font-size:1.02rem;}
+
+/* SERVICES */
+#servicios{background:rgba(255,255,255,.02);border-radius:30px;padding:90px 40px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:0;}
+.service-card{background:linear-gradient(135deg,rgba(107,63,160,.25),rgba(61,26,110,.3));border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:36px 28px;text-align:center;transition:.4s;cursor:default;}
+.service-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 12px 40px rgba(107,63,160,.4);}
+.service-icon{font-size:2.8rem;margin-bottom:16px;display:block;}
+.service-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gold);margin-bottom:12px;}
+.service-card p{color:#c8bae8;font-size:.95rem;line-height:1.7;}
+
+/* PROBLEMS */
+#problematicas{padding:90px 40px;max-width:1200px;margin:0 auto;text-align:center;}
+.problems-subtitle{color:#c8bae8;font-size:1.05rem;max-width:600px;margin:0 auto 50px;}
+.problems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.problem-item{background:rgba(107,63,160,.2);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:24px 16px;transition:.3s;}
+.problem-item:hover{border-color:var(--gold);background:rgba(107,63,160,.35);}
+.problem-item .emoji{font-size:2rem;margin-bottom:10px;display:block;}
+.problem-item p{color:#d4c8f0;font-size:.9rem;line-height:1.5;}
+
+/* GALLERY */
+#galeria{padding:90px 40px;max-width:1200px;margin:0 auto;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.gallery-item{border-radius:16px;overflow:hidden;border:1px solid rgba(201,168,76,.2);transition:.3s;}
+.gallery-item:hover{transform:scale(1.02);border-color:var(--gold);}
+.gallery-item img{width:100%;height:320px;object-fit:cover;object-position:top;}
+
+/* TESTIMONIALS */
+#testimonios{padding:90px 40px;max-width:1200px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.testi-card{background:linear-gradient(135deg,rgba(107,63,160,.2),rgba(26,10,46,.5));border:1px solid rgba(201,168,76,.2);border-radius:20px;padding:30px;transition:.3s;}
+.testi-card:hover{border-color:var(--gold);}
+.testi-stars{color:var(--gold);font-size:1.1rem;margin-bottom:12px;}
+.testi-text{color:#d4c8f0;font-style:italic;line-height:1.7;margin-bottom:16px;}
+.testi-name{color:var(--gold);font-weight:700;font-size:.9rem;}
+
+/* CTA SECTION */
+#contacto{padding:90px 40px;text-align:center;max-width:1200px;margin:0 auto;}
+.cta-box{background:linear-gradient(135deg,rgba(107,63,160,.3),rgba(61,26,110,.4));border:1px solid rgba(201,168,76,.3);border-radius:30px;padding:70px 40px;position:relative;overflow:hidden;}
+.cta-box::before{content:'✨';position:absolute;font-size:8rem;opacity:.05;top:-20px;right:40px;}
+.cta-box h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold-light);margin-bottom:16px;}
+.cta-box p{color:#c8bae8;font-size:1.05rem;max-width:500px;margin:0 auto 36px;}
+
+/* SOCIAL SECTION */
+#redes{padding:60px 40px;text-align:center;max-width:1200px;margin:0 auto;}
+.social-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:30px;}
+.social-btn{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.3);border-radius:50px;padding:14px 28px;color:var(--gold-light);text-decoration:none;font-size:.95rem;transition:.3s;}
+.social-btn:hover{background:rgba(201,168,76,.15);border-color:var(--gold);transform:translateY(-3px);}
+.social-btn span{font-size:1.4rem;}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,.4);border-top:1px solid rgba(201,168,76,.15);padding:30px 40px;text-align:center;color:#8a7aaa;font-size:.85rem;}
+footer strong{color:var(--gold);}
+
+/* WHATSAPP */
+.wa-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:.3s;text-decoration:none;animation:pulse 2s infinite;}
+.wa-btn:hover{transform:scale(1.1);}
+.wa-btn svg{width:32px;height:32px;fill:#fff;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.4);}50%{box-shadow:0 6px 36px rgba(37,211,102,.7);}}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:12px 20px;}
+  .nav-links{display:none;}
+  .hero-content{flex-direction:column;text-align:center;padding:40px 20px;}
+  .hero-image{width:90%;max-width:320px;}
+  .hero-btns{justify-content:center;}
+  .about-grid{flex-direction:column;text-align:center;}
+  section{padding:60px 20px;}
+  #sobre-mi{padding:60px 20px;}
+  #servicios{padding:60px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🪷 Terapia Espiritual</div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div class="nav-social">
+      <a href="https://wa.me/573134548518" target="_blank" title="WhatsApp">💬</a>
+      <a href="https://instagram.com/terapiaespiritualoficial" target="_blank" title="Instagram">📸</a>
+      <a href="#" title="TikTok">🎵</a>
+    </div>
+    <a href="https://wa.me/573134548518" target="_blank"><button class="nav-cta">Agenda una Sesión</button></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="inicio" style="position:relative;">
+  <div class="hero-bg" style="background-image:url('https://i.ibb.co/W407YpHc/Terapia-Espiritual-1.png');background-size:cover;background-position:center top;"></div>
+  <canvas id="stars"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="lotus-icon">🪷</span>
+      <div class="hero-title">Terapia Espiritual</div>
+      <div class="hero-subtitle">Acompañamiento para tu Bienestar Emocional</div>
+      <p class="hero-desc">Libera la ansiedad, sana las emociones y recupera tu equilibrio interior con terapia espiritual.</p>
+      <p class="hero-desc">Un espacio seguro, sin juicios, para reconectar contigo y empezar tu proceso de sanación.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/573134548518" target="_blank" class="btn-primary">✨ Agenda una Sesión</a>
+        <a href="#servicios" class="btn-secondary">Más Información</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://i.ibb.co/wFTP2v5z/Imagen-Introduccion-2.png" alt="Terapeuta Espiritual" style="width:100%;border-radius:20px;object-fit:cover;object-position:top;filter:drop-shadow(0 0 40px rgba(107,63,160,.9));"/>
+    </div>
+  </div>
+
+  <!-- Icon Nav -->
+  <div class="icon-nav">
+    <a href="#inicio" class="icon-nav-item"><span class="ico">🏠</span>Inicio</a>
+    <a href="#sobre-mi" class="icon-nav-item"><span class="ico">🧘</span>Sobre mí</a>
+    <a href="#servicios" class="icon-nav-item"><span class="ico">🌸</span>Servicios</a>
+    <a href="#testimonios" class="icon-nav-item"><span class="ico">💬</span>Testimonios</a>
+    <a href="#galeria" class="icon-nav-item"><span class="ico">📖</span>Galería</a>
+    <a href="#redes" class="icon-nav-item"><span class="ico">▶️</span>Redes</a>
+  </div>
+</div>
+
+<!-- SOBRE MI -->
+<div id="sobre-mi" style="padding:90px 40px;">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://i.ibb.co/vxP86dhm/Imagen-Introduccion.png" alt="Terapeuta" style="width:100%;border-radius:20px;filter:drop-shadow(0 0 30px rgba(107,63,160,.6));"/>
+    </div>
+    <div class="about-text">
+      <h3>¿Qué es la Terapia Espiritual?</h3>
+      <p>Es un acompañamiento para momentos de ansiedad, tristeza o carga emocional. Un proceso de reconexión con tu ser interior para sanar desde la raíz.</p>
+      <p>Te ayuda a liberar bloqueos, comprender tus emociones y recuperar tu equilibrio interior. Un espacio seguro, sin juicios, para reconectar contigo y empezar tu proceso de sanación.</p>
+      <p>🌿 Sesiones presenciales y virtuales disponibles para todo Colombia.</p>
+      <a href="https://wa.me/573134548518" class="btn-primary" target="_blank" style="margin-top:20px;display:inline-block;">Quiero saber más</a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<div id="servicios" style="background:rgba(255,255,255,.02);padding:90px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="section-divider"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🕯️</span>
+        <h3>Masajes Relajantes</h3>
+        <p>Técnicas de masaje terapéutico para liberar la tensión física y emocional acumulada, restaurando la calma y el bienestar profundo.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤲</span>
+        <h3>Terapia de Manos en Armonía</h3>
+        <p>Trabajo energético a través de las manos para equilibrar los centros de energía del cuerpo, promoviendo la armonía interior.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <h3>Manejo de Energías</h3>
+        <p>Técnicas especializadas para limpiar, equilibrar y potenciar tu campo energético, eliminando bloqueos que afectan tu bienestar.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💜</span>
+        <h3>Gestión Emocional</h3>
+        <p>Acompañamiento para comprender, procesar y transformar emociones como la tristeza, ansiedad, inseguridad y el dolor emocional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEMATICAS -->
+<div id="problematicas" style="padding:90px 40px;max-width:1200px;margin:0 auto;text-align:center;">
+  <h2 class="section-title">¿Te identificas con esto?</h2>
+  <div class="section-divider"></div>
+  <p class="problems-subtitle">La terapia espiritual está diseñada para acompañar a quienes atraviesan momentos difíciles. No estás solo/a.</p>
+  <div class="problems-grid">
+    <div class="problem-item"><span class="emoji">😔</span><p>Tristeza profunda o depresión</p></div>
+    <div class="problem-item"><span class="emoji">😰</span><p>Ansiedad y ataques de pánico</p></div>
+    <div class="problem-item"><span class="emoji">😟</span><p>Inseguridad y baja autoestima</p></div>
+    <div class="problem-item"><span class="emoji">💔</span><p>Duelo o pérdida emocional</p></div>
+    <div class="problem-item"><span class="emoji">😤</span><p>Estrés y agotamiento emocional</p></div>
+    <div class="problem-item"><span class="emoji">🌀</span><p>Bloqueos y estancamiento vital</p></div>
+    <div class="problem-item"><span class="emoji">🫂</span><p>Soledad y desconexión interior</p></div>
+    <div class="problem-item"><span class="emoji">🙏</span><p>Necesidad de reconectar contigo</p></div>
+  </div>
+  <div style="margin-top:50px;padding:30px;background:rgba(107,63,160,.2);border-radius:20px;border:1px solid rgba(201,168,76,.2);">
+    <p style="color:#d4c8f0;font-size:1.05rem;line-height:1.8;">💜 Si estás pasando por un momento muy difícil, recuerda que pedir ayuda es un acto de valentía. La Línea 106 de Salud Mental de Colombia está disponible las 24 horas.</p>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<div id="galeria" style="padding:90px 40px;max-width:1200px;margin:0 auto;">
+  <h2 class="section-title">Galería</h2>
+  <div class="section-divider"></div>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item"><img src="https://i.ibb.co/W407YpHc/Terapia-Espiritual-1.png" alt="Terapia Espiritual"/></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/wFTP2v5z/Imagen-Introduccion-2.png" alt="Terapeuta Espiritual 2"/></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/vxP86dhm/Imagen-Introduccion.png" alt="Terapeuta Espiritual 3"/></div>
+    <div class="gallery-item"><img src="https://i.ibb.co/7Jgrdj0F/f-Terapia-Espiritual-2.png" alt="Terapeuta Espiritual 4"/></div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<div id="testimonios" style="padding:90px 40px;max-width:1200px;margin:0 auto;">
+  <h2 class="section-title">Testimonios</h2>
+  <div class="section-divider"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Llegué con una tristeza que ya no podía cargar. Las sesiones me ayudaron a entender mis emociones y a encontrar paz. Hoy me siento otra persona."</p>
+      <div class="testi-name">— María P., Medellín</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"La terapia de manos en armonía fue una experiencia transformadora. Sentí cómo se liberaban bloqueos que llevaba años cargando."</p>
+      <div class="testi-name">— Carlos R., Bogotá</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Por fin encontré un espacio donde me sentí escuchada y sin juicios. El manejo de energías cambió completamente mi vida."</p>
+      <div class="testi-name">— Valentina G., Cali</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="contacto" style="padding:90px 40px;text-align:center;max-width:1200px;margin:0 auto;">
+  <div class="cta-box">
+    <h2>Da el Primer Paso hacia tu Sanación</h2>
+    <p>No tienes que seguir cargando solo el peso de tus emociones. Estoy aquí para acompañarte.</p>
+    <a href="https://wa.me/573134548518" target="_blank" class="btn-primary" style="font-size:1.1rem;padding:16px 40px;">💬 Escríbeme por WhatsApp</a>
+    <p style="margin-top:20px;color:#8a7aaa;font-size:.9rem;">📍 Medellín, Colombia &nbsp;|&nbsp; Sesiones presenciales y virtuales</p>
+  </div>
+</div>
+
+<!-- REDES SOCIALES -->
+<div id="redes" style="padding:60px 40px;text-align:center;max-width:1200px;margin:0 auto;">
+  <h2 class="section-title">Sígueme en Redes</h2>
+  <div class="section-divider"></div>
+  <p style="color:#c8bae8;margin-bottom:10px;">Contenido de sanación, tips de bienestar y testimonios</p>
+  <div class="social-links">
+    <a href="https://wa.me/573134548518" class="social-btn" target="_blank"><span>💬</span> WhatsApp</a>
+    <a href="https://instagram.com/terapiaespiritualoficial" class="social-btn" target="_blank"><span>📸</span> Instagram</a>
+    <a href="mailto:bautistadiazalexandra25@gmail.com" class="social-btn"><span>✉️</span> Correo</a>
+    <a href="#" class="social-btn"><span>📘</span> Facebook</a>
+    <a href="#" class="social-btn"><span>🎵</span> TikTok</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>🪷 <strong>Terapia Espiritual</strong> – Acompañamiento para tu Bienestar Emocional</p>
+  <p style="margin-top:8px;">📞 <a href="https://wa.me/573134548518" style="color:var(--gold);">313 454 8518</a> &nbsp;|&nbsp; ✉️ <a href="mailto:bautistadiazalexandra25@gmail.com" style="color:var(--gold);">bautistadiazalexandra25@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:.78rem;">© 2026 Terapia Espiritual. Todos los derechos reservados.</p>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/573134548518" class="wa-btn" target="_blank" title="Escríbeme por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.856L.073 23.927l6.244-1.637A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.032-1.388l-.361-.214-3.709.973.987-3.611-.236-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<script>
+// Estrellas animadas
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+function init(){stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+.3,o:Math.random(),s:Math.random()*.003+.001});}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.o+=s.s;if(s.o>1||s.o<0)s.s*=-1;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,240,200,${s.o})`;ctx.fill();});requestAnimationFrame(draw);}
+resize();init();draw();
+window.addEventListener('resize',()=>{resize();init();});
+</script>
+</body>
+</html>
